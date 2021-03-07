@@ -20,7 +20,7 @@ class OverviewFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity()).get(OverviewViewModel::class.java)
+        initViewModel()
     }
 
     override fun onCreateView(
@@ -32,5 +32,9 @@ class OverviewFragment : Fragment() {
             textViewOverview.text = viewModel.response.value.toString()
         }
         return binding.root
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(requireActivity()).get(OverviewViewModel::class.java)
     }
 }
